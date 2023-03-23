@@ -1,0 +1,25 @@
+@use './variables.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+
+body {
+    background-color: variables.$black;
+    overflow-x: hidden;
+}
+
+.bg-stars {
+    z-index: -1;
+    height: 110vh;
+    overflow: hidden;
+
+    img {
+        width: 1920px;
+    }
+}

@@ -1,0 +1,154 @@
+@use './variables.scss';
+
+@keyframes round {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@mixin planet($width, $planetWidth, $planet, $speed) {
+    height: $width;
+    width: $width;
+    position: absolute;
+
+    animation: linear round;
+    animation-duration: $speed;
+    animation-iteration-count: infinite;
+
+    img {
+        width: $planetWidth;
+        transition: all 0.3s;
+    }
+
+    &.active {
+        img {
+            scale: 1.3;
+        }
+    }
+    @if ($planet == 'mercury') {
+        .Mercury {
+            @include variables.center($planetWidth, $planetWidth);
+            position: absolute;
+            left: $planetWidth/2*-1;
+            top: 50%;
+        }
+    } @else if ($planet == 'venus') {
+        .Venus {
+            @include variables.center($planetWidth, $planetWidth);
+            position: absolute;
+            left: $planetWidth/2*-1;
+            top: 50%;
+        }
+    } @else if ($planet == 'earth') {
+        .Earth {
+            @include variables.center($planetWidth, $planetWidth);
+            position: absolute;
+            left: $planetWidth/2*-1;
+            top: 50%;
+        }
+    } @else if ($planet == 'mars') {
+        .Mars {
+            @include variables.center($planetWidth, $planetWidth);
+            position: absolute;
+            left: $planetWidth/2*-1;
+            top: 50%;
+        }
+    } @else if ($planet == 'jupiter') {
+        .Jupiter {
+            @include variables.center($planetWidth, $planetWidth);
+            position: absolute;
+            left: $planetWidth/2*-1;
+            top: 50%;
+        }
+    } @else if ($planet == 'saturn') {
+        .Saturn {
+            @include variables.center($planetWidth, $planetWidth);
+            position: absolute;
+            left: $planetWidth/2*-1;
+            top: 50%;
+        }
+    } @else if ($planet == 'uranus') {
+        .Uranus {
+            @include variables.center($planetWidth, $planetWidth);
+            position: absolute;
+            left: $planetWidth/2*-1;
+            top: 50%;
+        }
+    } @else if ($planet == 'neptune') {
+        .Neptune {
+            @include variables.center($planetWidth, $planetWidth);
+            position: absolute;
+            left: $planetWidth/2*-1;
+            top: 50%;
+        }
+    }
+}
+
+main {
+    @include variables.center(100%, 90vh);
+    position: absolute;
+    top: 10vh;
+    left: 0;
+
+    .sun {
+        border-radius: 50%;
+        @include variables.center(4%, auto);
+        position: relative;
+        z-index: -1;
+
+        img {
+            width: 100%;
+        }
+
+        .shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            z-index: 10;
+
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+
+            background-color: rgba($color: rgb(221, 179, 87), $alpha: 0.1);
+            box-shadow: 0px 0px 12px rgb(221, 179, 87);
+        }
+    }
+
+    .Neptune-planet {
+        @include planet(590px, 20px, 'neptune', 1000s);
+        z-index: 1;
+    }
+    .Uranus-planet {
+        @include planet(490px, 20px, 'uranus', 700s);
+        z-index: 2;
+    }   
+    .Saturn-planet {
+        @include planet(410px, 35px, 'saturn', 300s);
+        z-index: 3;
+    }
+    .Jupiter-planet {
+        @include planet(320px, 35px, 'jupiter', 200s);
+        z-index: 4;
+    }
+    .Mars-planet {
+        @include planet(220px, 12px, 'mars', 70s);
+        z-index: 5;
+    }
+    .Earth-planet {
+        @include planet(180px, 18px, 'earth', 30s);
+        z-index: 6;
+    }
+    .Venus-planet {
+        @include planet(130px, 15px, 'venus', 20s);
+        z-index: 7;
+    }
+    .Mercury-planet {
+        @include planet(100px, 10px, 'mercury', 6s);
+        z-index: 8;
+    }
+}

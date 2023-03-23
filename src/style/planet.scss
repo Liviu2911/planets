@@ -1,0 +1,9 @@
+@use './variables.scss';
+
+.planet-img {
+    position: absolute;
+    top: 18%;
+    left: 27%;
+
+    @include variables.center(580px, 580px);
+}
